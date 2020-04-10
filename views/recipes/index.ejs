@@ -1,0 +1,35 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+	<header class="jumbotron">
+		<div class="container">
+			<h1>Welcome to RecipeApp</h1>
+			<p>
+				A collection of delicious recipes from all around the globe
+			</p>
+			<p>
+				<a class="btn btn-primary btn-lg" href="/recipes/new">Add new Recipe</a>	
+			</p>
+		</div>
+	</header>
+
+	<div class="row text-center" style="display:flex; flex-wrap: wrap;">
+		<% recipes.forEach(function(recipe){ %>
+			<div class="col-md-3 container-border">
+				<div class="thumbnail">
+					<img src="<%= recipe.image %>">
+				</div>
+				<div class="caption">
+						<a class="brand" href="/recipes/<%= recipe._id %>" class="btn btn-primary"><%= recipe.name %></a>
+				</div>
+				<p>
+					
+				</p>
+			</div>	
+		<% }) %>
+	</div>
+</div>
+
+<div class="container">
+	<%- include("../partials/footer") %>
+</div>

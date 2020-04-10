@@ -1,0 +1,30 @@
+.thumbnail img {
+	width: 100%;
+}
+
+.thumbnail {
+	padding: 0;
+}
+
+.container-border{
+	margin: auto;
+ }
+
+.delete-form {
+	display: inline;
+}
+
+.container {
+	width: 100%;
+	display: block;
+	margin: auto;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+#edit-recipe-btn {
+	margin-left: 5px;;
+}

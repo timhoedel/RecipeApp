@@ -1,0 +1,64 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+	<div class="row">
+			<h2 class="text-center">
+				<%= recipe.name %>
+			</h2>
+		<div class="col-md-6 col-centered">
+			<div class="thumbnail">
+				<img class="img-responsive img-styler" src="<%= recipe.image %>">
+				<div class="caption">
+					<h5 class="pull-right">
+						Difficulty: Easy
+					</h5>
+					<h5>
+						Author: <%= recipe.author.username %>
+					</h5>
+					<% if(currentUser && recipe.author.id.equals(currentUser.id)) { %>
+				  	<a class="btn btn-s btn-warning pull-right" id="edit-recipe-btn" href="/recipes/<%= recipe._id %>/edit">Edit</a>
+					<form class="delete-form" action="/recipes/<%= recipe._id %>?_method=DELETE" method=POST>
+						<button class="btn btn-s btn-danger pull-right">
+							Delete
+						</button>
+					</form>
+				  	<% } %>
+					
+					<p>
+						<%= recipe.description %>
+					</p>
+				</div>
+			</div>
+			<div class="well">
+				<h3>
+					Comments
+				</h3>
+				<div class="text-right">
+					<a class="btn btn-success"  href="/recipes/<%= recipe._id %>/comments/new">Add Comment</a>
+				</div>
+				<hr>
+				<% recipe.comments.forEach(function(comment){ %>
+					<div class="row">
+						<div class="col-md-12">
+							<strong><%= comment.author.username %></strong>
+							<p>
+								<%= comment.text %>
+							</p>
+							<% if(currentUser && comment.author.id.equals(currentUser.id)) { %>
+							<a class="btn btn-xs btn-warning pull-right" href="/recipes/<%= recipe._id %>/comments/<%= comment._id %>/edit">Edit</a>
+							<form class="delete-form" action="/recipes/<%= recipe._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+								<input type="submit" class="btn btn-xs btn-danger pull-right" value="Delete">	
+							</form>
+							<% } %>
+						</div>	
+					</div>
+				<% }) %>
+			</div>
+				<a href="/recipes" class="btn btn-default">Back</a>
+		</div>
+		
+	</div>
+
+</div>
+
+<%- include("../partials/footer") %>
