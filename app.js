@@ -17,25 +17,10 @@ var commentRoutes = require('./routes/comments'),
 	indexRoutes = require('./routes/index');
 
 //Localhost mongodb
-mongoose
-	.connect('mongodb://localhost/recipeApp', {
-		useNewUrlParser: true,
-		useUnifiedTopology: true
-	})
-	.then(() => {
-		console.log('Connected to db');
-	})
-	.catch((err) => {
-		console.log('error: ' + err.message);
-	});
-
-//MongoDB Atlas db
 // mongoose
-// 	.connect(config.database_url, {
+// 	.connect('mongodb://localhost/recipeApp', {
 // 		useNewUrlParser: true,
-// 		useUnifiedTopology: true,
-// 		useFindAndModify: false,
-// 		useCreateIndex: true
+// 		useUnifiedTopology: true
 // 	})
 // 	.then(() => {
 // 		console.log('Connected to db');
@@ -43,6 +28,21 @@ mongoose
 // 	.catch((err) => {
 // 		console.log('error: ' + err.message);
 // 	});
+
+//MongoDB Atlas db
+mongoose
+	.connect(config.database_url, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+		useFindAndModify: false,
+		useCreateIndex: true
+	})
+	.then(() => {
+		console.log('Connected to db');
+	})
+	.catch((err) => {
+		console.log('error: ' + err.message);
+	});
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');

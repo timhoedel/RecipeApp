@@ -6,14 +6,7 @@ var Recipe = require('../models/recipe');
 
 //Root route
 router.get('/', function(req, res) {
-	//Get recipes from db
-	Recipe.find({}, function(err, allRecipes) {
-		if (err) {
-			console.log(err);
-		} else {
-			res.render('recipes/index', { recipes: allRecipes });
-		}
-	});
+	res.redirect('/recipes');
 });
 
 //AUTH ROUTES

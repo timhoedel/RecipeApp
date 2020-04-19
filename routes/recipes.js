@@ -44,7 +44,8 @@ router.get('/recipes/new', middleware.isLoggedIn, function(req, res) {
 //use populate exec to load comments into object before executing the callback
 //Has to be above /new, or it will be called for anything after /
 router.get('/recipes/:id', function(req, res) {
-	Recipe.findById(req.params.id).populate('comments').exec(function(err, foundObject) {
+	const recipeId = req.params.id;
+	Recipe.findById(recipeId).populate('comments').exec(function(err, foundObject) {
 		if (err || !foundObject) {
 			console.log(err);
 			res.redirect('back');

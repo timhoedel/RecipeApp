@@ -4,6 +4,16 @@
 		<title>RecipeApp</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 		<link href="/stylesheets/main.css" rel="stylesheet">
+		<script src="https://cdn.tiny.cloud/1/vwldy0at9xgh1ir7qehimm5kvuqqzrvp1i3iimh2v0xdhrx4/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+		<script>
+			tinymce.init({
+			  selector: 'textarea',
+			  body_class: 'textarea-description',
+			  toolbar: false,
+			  menubar: false
+			});
+		</script>
 	</head>
 	<body>
 		<nav class="navbar navbar-default">
