@@ -8,8 +8,8 @@ var express = require('express'),
 	passport = require('passport'),
 	LocalStrategy = require('passport-local'),
 	methodOverride = require('method-override'),
-	User = require('./models/user'),
-	config = require('./config.json');
+	User = require('./models/user');
+//config = require('./config.json');
 
 //Require route files
 var commentRoutes = require('./routes/comments'),
@@ -31,7 +31,7 @@ var commentRoutes = require('./routes/comments'),
 
 //MongoDB Atlas db
 mongoose
-	.connect(config.database_url, {
+	.connect(process.env.database_url, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 		useFindAndModify: false,
@@ -56,7 +56,7 @@ app.use(methodOverride('_method'));
 //Passport configuration
 app.use(
 	require('express-session')({
-		secret: config.session_secret,
+		secret: process.env.session_secret,
 		resave: false,
 		saveUninitialized: false
 	})
