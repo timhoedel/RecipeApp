@@ -16,7 +16,7 @@ var commentRoutes = require('./routes/comments'),
 	recipeRoutes = require('./routes/recipes'),
 	indexRoutes = require('./routes/index');
 
-//Localhost mongodb
+// //Localhost mongodb
 // mongoose
 // 	.connect('mongodb://localhost/recipeApp', {
 // 		useNewUrlParser: true,
@@ -57,6 +57,7 @@ app.use(methodOverride('_method'));
 app.use(
 	require('express-session')({
 		secret: process.env.session_secret,
+		//secret: config.session_secret,
 		resave: false,
 		saveUninitialized: false
 	})
@@ -79,6 +80,10 @@ app.use(function(req, res, next) {
 app.use(indexRoutes);
 app.use(recipeRoutes);
 app.use(commentRoutes);
+
+// app.listen(3000, function() {
+// 	console.log('RecipeApp listening on port 3000 ...');
+// });
 
 app.listen(process.env.PORT, function() {
 	console.log('RecipeApp listening on port' + process.env.PORT + ' ...');
