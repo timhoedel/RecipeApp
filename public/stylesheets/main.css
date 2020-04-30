@@ -5,6 +5,13 @@
 	margin-bottom: 10px;
 }
 
+.img-show {
+	width: 600px;
+	height: 600px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
 .thumbnail {
 	padding: 0;
 }
