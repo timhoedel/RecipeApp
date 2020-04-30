@@ -1,14 +1,17 @@
-.thumbnail img {
-	width: 100%;
+.img-fixed {
+	width: 200px;
+	height: 200px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 .thumbnail {
 	padding: 0;
 }
 
-.container-border{
+.container-border {
 	margin: auto;
- }
+}
 
 .delete-form {
 	display: inline;
@@ -20,11 +23,15 @@
 	margin: auto;
 }
 
-.col-centered{
-    float: none;
-    margin: 0 auto;
+img {
+	object-fit: cover;
+}
+
+.col-centered {
+	float: none;
+	margin: 0 auto;
 }
 
 #edit-recipe-btn {
-	margin-left: 5px;;
+	margin-left: 5px;
 }

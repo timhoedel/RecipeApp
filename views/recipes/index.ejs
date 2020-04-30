@@ -13,20 +13,18 @@
 		</div>
 	</header>
 
-	<div class="row text-center" style="display:flex; flex-wrap: wrap;">
-		<% recipes.forEach(function(recipe){ %>
-			<div class="col-md-3 container-border">
-				<div class="thumbnail">
-					<img src="<%= recipe.image %>">
-				</div>
-				<div class="caption">
-						<a class="brand" href="/recipes/<%= recipe._id %>" class="btn btn-primary"><%= recipe.name %></a>
-				</div>
-				<p>
-					
-				</p>
-			</div>	
-		<% }) %>
+	<div class="container">
+		<div class="row" style="display:flex; flex-wrap: wrap;">
+			<% recipes.forEach(function(recipe){ %>
+				<div class="col-md-3 col-xs-12 container-border">
+					<a href="/recipes/<%= recipe._id %>">
+						<div class="container">
+							<img class="img-responsive img-rounded img-fixed center-block" src="<%= recipe.image %>">
+						</div>
+					</a>
+				</div>	
+			<% }) %>
+		</div>
 	</div>
 </div>
 
