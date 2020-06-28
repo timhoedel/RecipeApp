@@ -16,10 +16,11 @@
 	<div class="container">
 		<div class="row" style="display:flex; flex-wrap: wrap;">
 			<% recipes.forEach(function(recipe){ %>
-				<div class="col-md-6 col-sm-12 container-border">
+				<div class="col-lg-3 col-sm-12 container-border">
 					<a href="/recipes/<%= recipe._id %>">
 						<div class="container">
 							<img class="img-responsive img-rounded img-fixed center-block" src="<%= recipe.image %>">
+							<p style="text-align: center;"><%= recipe.name %></p>
 						</div>
 					</a>
 				</div>	

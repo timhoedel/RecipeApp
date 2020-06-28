@@ -20,11 +20,12 @@ router.post('/recipes', middleware.isLoggedIn, function(req, res) {
 	var name = req.body.name;
 	var image = req.body.image;
 	var description = req.body.description;
+	var difficulty = req.body.difficulty;
 	var author = {
 		id: req.user._id,
 		username: req.user.username
 	};
-	var newRecipe = { name: name, image: image, description: description, author: author };
+	var newRecipe = { name: name, image: image, description: description, difficulty: difficulty, author: author };
 	//Create new recipe and safe to db
 	Recipe.create(newRecipe, function(err, newObject) {
 		if (err) {

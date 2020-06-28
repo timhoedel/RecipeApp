@@ -18,7 +18,7 @@ var commentRoutes = require('./routes/comments'),
 
 // //Localhost mongodb
 // mongoose
-// 	.connect('mongodb://localhost/recipeApp', {
+// 	.connect('mongodb://localhost/recipeAppLocal2', {
 // 		useNewUrlParser: true,
 // 		useUnifiedTopology: true
 // 	})

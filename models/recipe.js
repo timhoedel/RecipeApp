@@ -1,4 +1,4 @@
-var mongoose = require("mongoose");
+var mongoose = require('mongoose');
 const Comment = require('./comment');
 
 // SCHEMA SETUP
@@ -6,17 +6,18 @@ var recipeSchema = new mongoose.Schema({
 	name: String,
 	image: String,
 	description: String,
+	difficulty: String,
 	author: {
 		id: {
 			type: mongoose.Schema.Types.ObjectId,
-			ref: "User"
+			ref: 'User'
 		},
 		username: String
 	},
 	comments: [
 		{
 			type: mongoose.Schema.Types.ObjectId,
-			ref: "Comment"
+			ref: 'Comment'
 		}
 	]
 });
@@ -29,4 +30,4 @@ recipeSchema.pre('remove', async function() {
 	});
 });
 
-module.exports = mongoose.model("Recipe", recipeSchema);
+module.exports = mongoose.model('Recipe', recipeSchema);
